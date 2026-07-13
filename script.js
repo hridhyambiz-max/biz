@@ -1,20 +1,25 @@
-// Hide boot screen safely once the layout script initializes
-window.addEventListener('DOMContentLoaded', () => {
-    const bootScreen = document.getElementById('bm-boot-screen');
-    if (bootScreen) {
-        bootScreen.classList.add('bm-hide');
+// ============================================================================
+// 1. SAFE BOOT SCREEN CONTROL OPERATIONS
+// ============================================================================
+function clearSystemBootScreen() {
+    const screen = document.getElementById('bm-boot-screen');
+    if (screen) {
+        screen.classList.add('bm-hide');
+        setTimeout(() => {
+            screen.style.display = 'none';
+        }, 300);
     }
     document.documentElement.classList.remove('bm-booting');
-});
+}
 
 // ============================================================================
-// LOCAL STORAGE DATABASES MANAGEMENT
+// 2. CENTRAL LOCAL STORAGE WORKSPACE REGISTER
 // ============================================================================
-const STORAGE_KEY = "bizmanage-commerce-os-imported-sales-v1";
+const DATABASE_KEY = "bizmanage-commerce-os-imported-sales-v1";
 
-function initializeDatabase() {
-    if (!localStorage.getItem(STORAGE_KEY)) {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+function setupWorkspaceDatabase() {
+    if (!localStorage.getItem(DATABASE_KEY)) {
+        localStorage.setItem(DATABASE_KEY, JSON.stringify({
             profile: { name: "Sandhya Owner", email: "owner@bizmanage.demo" },
             activeBusinessId: "b1",
             businesses: [
@@ -44,9 +49,22 @@ function initializeDatabase() {
     }
 }
 
-initializeDatabase();
+// Execute core sequence
+setupWorkspaceDatabase();
 
 // ============================================================================
-// EXPERT INTEGRATION ROUTERS & WORKSPACE LIFECYCLE
+// 3. APPLICATION INITIALIZATION LIFECYCLE
 // ============================================================================
-console.log("BizManage Modular System Loaded. Workspace active.");
+window.addEventListener('load', () => {
+    console.log("Core Business Engine compiled successfully. Router Active.");
+    
+    // Simulate safe mount delay to prevent engine flashes
+    setTimeout(() => {
+        clearSystemBootScreen();
+    }, 400);
+});
+
+// Polyfill hook for system data synchronization
+window.addEventListener("bizmanage-data-updated", (e) => {
+    console.log(`System module dataset changed: ${e.detail.module}`);
+});
