@@ -6,13 +6,13 @@
     <meta content="#6d5dfc" name="theme-color"/>
     <title>BizManage OS</title>
     
-    <!-- Fonts Library -->
+    <!-- Premium Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     
-    <!-- Link to Stylesheet -->
+    <!-- Link to external Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Stable Global Framework Scripts (Strict Loading Order) -->
+    <!-- Production Ready Global Framework Dependencies (Strict Order) -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
@@ -20,18 +20,10 @@
 </head>
 <body>
 
-    <!-- Boot Loading Screen -->
-    <div id="bm-boot-screen">
-        <div class="bm-boot-card">
-            <span class="bm-boot-spinner"></span>
-            <span>Opening BizManage…</span>
-        </div>
-    </div>
-
-    <!-- React App Mount Point -->
+    <!-- App Main Mount Node -->
     <div id="root"></div>
 
-    <!-- Main Core Business Application Logic -->
+    <!-- Core Business Application Engine -->
     <script src="script.js" defer></script>
     
 </body>
