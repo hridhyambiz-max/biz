@@ -6,31 +6,33 @@
     <meta content="#6d5dfc" name="theme-color"/>
     <title>BizManage OS</title>
     
-    <!-- Fonts & Icons Library -->
+    <!-- Premium UI Web Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     
-    <!-- Link to external Stylesheet -->
+    <!-- Separate Stylesheet Link -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Framework Runtime Modules -->
+    <!-- UMD Global Framework Dependencies (Strict Order) -->
     <script src="https://unpkg.com/react@19/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@19/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+    <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
 </head>
 <body>
 
-    <!-- Boot Loading Screen -->
-    <div id="bm-boot-screen" aria-live="polite">
+    <!-- Boot Loading Screen Layout -->
+    <div id="bm-boot-screen">
         <div class="bm-boot-card">
             <span class="bm-boot-spinner"></span>
             <span>Opening BizManage…</span>
         </div>
     </div>
 
-    <!-- Main Mount Point -->
+    <!-- React Mount Node Container -->
     <div id="root"></div>
 
-    <!-- Core Business Application Engine -->
-    <script type="module" src="script.js"></script>
+    <!-- Core Business Application Script Layer -->
+    <script src="script.js" defer></script>
     
 </body>
 </html>
