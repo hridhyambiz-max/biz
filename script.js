@@ -1,25 +1,25 @@
 // ============================================================================
-// 1. SAFE BOOT SCREEN CONTROL OPERATIONS
+// 1. STABLE DESKTOP ROUTING AND INTERFACE CONTROL HOOKS
 // ============================================================================
-function clearSystemBootScreen() {
-    const screen = document.getElementById('bm-boot-screen');
-    if (screen) {
-        screen.classList.add('bm-hide');
+function releaseApplicationBootScreen() {
+    const bootScreen = document.getElementById('bm-boot-screen');
+    if (bootScreen) {
+        bootScreen.classList.add('bm-hide');
         setTimeout(() => {
-            screen.style.display = 'none';
-        }, 300);
+            bootScreen.style.display = 'none';
+        }, 250);
     }
     document.documentElement.classList.remove('bm-booting');
 }
 
 // ============================================================================
-// 2. CENTRAL LOCAL STORAGE WORKSPACE REGISTER
+// 2. CENTRAL LOCAL STORAGE DATA INITIALIZER
 // ============================================================================
-const DATABASE_KEY = "bizmanage-commerce-os-imported-sales-v1";
+const DATA_STORE_KEY = "bizmanage-commerce-os-imported-sales-v1";
 
-function setupWorkspaceDatabase() {
-    if (!localStorage.getItem(DATABASE_KEY)) {
-        localStorage.setItem(DATABASE_KEY, JSON.stringify({
+function verifyLocalDatabaseStructure() {
+    if (!localStorage.getItem(DATA_STORE_KEY)) {
+        localStorage.setItem(DATA_STORE_KEY, JSON.stringify({
             profile: { name: "Sandhya Owner", email: "owner@bizmanage.demo" },
             activeBusinessId: "b1",
             businesses: [
@@ -49,22 +49,22 @@ function setupWorkspaceDatabase() {
     }
 }
 
-// Execute core sequence
-setupWorkspaceDatabase();
+// Initialize database mapping before runtime mounts
+verifyLocalDatabaseStructure();
 
 // ============================================================================
-// 3. APPLICATION INITIALIZATION LIFECYCLE
+// 3. RUNTIME SYSTEM EXECUTION LIFECYCLE
 // ============================================================================
 window.addEventListener('load', () => {
-    console.log("Core Business Engine compiled successfully. Router Active.");
+    console.log("React Ecosystem initialized successfully inside the workspace context.");
     
-    // Simulate safe mount delay to prevent engine flashes
+    // Smooth transition from boot loader screen to application dashboard
     setTimeout(() => {
-        clearSystemBootScreen();
-    }, 400);
+        releaseApplicationBootScreen();
+    }, 300);
 });
 
-// Polyfill hook for system data synchronization
-window.addEventListener("bizmanage-data-updated", (e) => {
-    console.log(`System module dataset changed: ${e.detail.module}`);
+// Polyfill hook for workspace modifications tracking
+window.addEventListener("bizmanage-data-updated", (event) => {
+    console.log(`E-commerce master records updated for module: ${event.detail.module}`);
 });
